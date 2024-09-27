@@ -1,71 +1,64 @@
-# vetcd README
+# ETCD Explorer - VSCode Extension
 
-This is the README for your extension "vetcd". After writing up a brief description, we recommend including the following sections.
+ETCD Explorer is a Visual Studio Code extension that allows users to interact with an etcd cluster directly from the VSCode editor. You can view, search, and manage etcd keys and values seamlessly from a dedicated side panel.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **View ETCD Keys:** Display all keys stored in your etcd instance in a tree view.
+- **Search Keys:** Filter keys by substring using the search functionality in the side panel.
+- **Add Key-Value Pairs:** Easily add new keys and values to the etcd store using the "+" button in the side panel.
+- **View Key Details:** View the value associated with a specific key directly in VSCode. If the key is already open, it will refresh the same tab rather than opening new ones.
+- **Configurable ETCD URL:** Set custom etcd cluster URLs to interact with different environments.
 
-For example if there is an image subfolder under your extension project workspace:
+## How to Use
 
-\!\[feature X\]\(images/feature-x.png\)
+### 1. View Keys
+Once the extension is activated, you will see a new **ETCD Explorer** section in the side panel. Click on the arrow to view all keys from your etcd instance.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### 2. Search Keys
+You can filter keys by typing a substring into the search input field located at the top of the ETCD Explorer panel. This will dynamically update the displayed keys.
 
-## Requirements
+### 3. Add a Key-Value Pair
+Click the "+" button next to the search input to add a new key-value pair to your etcd instance. A prompt will appear for entering both the key and value.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### 4. View Key Value
+Click on any key in the tree view to display its value. The value will be shown in a VSCode editor tab. If the key has already been opened, the existing tab will be refreshed.
+
+### 5. Refresh the Tree View
+To refresh the list of keys, click the refresh icon at the top of the ETCD Explorer side panel.
+
+### 6. Configure ETCD URL
+You can supply a custom etcd URL using the extension's configuration options.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+To configure the etcd URL:
 
-For example:
+1. Open VSCode settings (`File > Preferences > Settings`).
+2. Search for "ETCD URL".
+3. Enter the desired etcd URL (e.g., `http://localhost:2379`).
 
-This extension contributes the following settings:
+## Commands
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This extension provides several commands that can be accessed via the command palette (`Ctrl + Shift + P`):
 
-## Known Issues
+- **ETCD: Refresh Tree** - Refreshes the displayed list of keys.
+- **ETCD: Search Keys** - Opens a search box to filter keys by a substring.
+- **ETCD: Add Key** - Prompts the user to enter a new key-value pair for etcd.
+- **ETCD: Show Details** - Opens the value of the selected key in an editor tab.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Installation
 
-## Release Notes
+1. Install the extension from the [VSCode Marketplace](https://marketplace.visualstudio.com/).
+2. Configure the etcd URL via the settings as needed.
+3. Enjoy managing your etcd instance directly from VSCode!
 
-Users appreciate release notes as you update your extension.
+## Requirements
 
-### 1.0.0
+- Visual Studio Code 1.50.0 or later
+- An accessible etcd cluster (local or remote)
 
-Initial release of ...
+## Contributing
 
-### 1.0.1
+We welcome contributions! If you have suggestions or find bugs, please open an issue or submit a pull request on our [GitHub repository](https://github.com/imkrishnaagrawal/vetcd).
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
