@@ -1,14 +1,37 @@
 {
   "name": "vetcd",
+  "author": {
+    "name": "Krishna Agrawal",
+    "email": "imkrishnaagrawal@gmail.com"
+  },
+  "publisher": "KrishnaAgrawal",
+  "funding": [
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/imkrishnaagrawal"
+    }
+  ],
   "displayName": "vetcd",
   "description": "etcd client",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.93.0"
   },
+  "keywords": [
+    "etcd",
+    "vetcd",
+    "etcd3",
+    "manager",
+    "kubernetes"
+  ],
   "categories": [
     "Other"
   ],
+  "icon": "resources/vetcd.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imkrishnaagrawal/vetcd"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
