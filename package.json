@@ -1,0 +1,125 @@
+{
+  "name": "vetcd",
+  "displayName": "vetcd",
+  "description": "etcd client",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "vEtcd Explorer",
+      "properties": {
+        "vEtcdExplorer.etcdUrl": {
+          "type": "string",
+          "default": "http://localhost:2379",
+          "description": "The URL of the etcd server"
+        },
+        "vEtcdExplorer.documentDefaultLanguage": {
+          "type": "string",
+          "default": "json",
+          "description": "default language of fetched documents/values"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "etcdPanel",
+          "title": "vEtcd Explorer",
+          "icon": "resources/vetcd.svg"
+        }
+      ]
+    },
+    "views": {
+      "etcdPanel": [
+        {
+          "id": "etcdTree",
+          "name": "Entries",
+          "contextualTitle": "Etcd Keys",
+          "icon": "resources/vetcd.svg"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "etcdExplorer.addKey",
+        "title": "Add Key",
+        "icon": {
+          "light": "resources/add.svg",
+          "dark": "resources/add.svg"
+        }
+      },
+      {
+        "command": "etcdExplorer.refreshTree",
+        "title": "Refresh",
+        "icon": {
+          "light": "resources/refresh.svg",
+          "dark": "resources/refresh.svg"
+        }
+      },
+      {
+        "command": "etcdExplorer.searchKeys",
+        "title": "Search Keys",
+        "icon": {
+          "light": "resources/search.svg",
+          "dark": "resources/search.svg"
+        }
+      }
+    ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "etcdExplorer.refreshTree",
+          "when": "view == etcdTree",
+          "group": "navigation"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "etcdExplorer.searchKeys",
+          "when": "view == etcdTree",
+          "group": "navigation"
+        },
+        {
+          "command": "etcdExplorer.refreshTree",
+          "when": "view == etcdTree",
+          "group": "navigation"
+        },
+        {
+          "command": "etcdExplorer.addKey",
+          "when": "view == etcdTree",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.93.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.9.1",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "electron": "^32.1.2",
+    "etcd3": "^1.1.2"
+  }
+}
